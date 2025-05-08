@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -38,5 +39,13 @@ public class StreamApi {
         list2=Arrays.asList(1,3,5,7,9);
 
         list.stream().map(x->x*x).distinct().reduce(0,Integer::sum);
+
+        Optional<String>optional=Optional.ofNullable(null);
+
+        // if(optional.isPresent()){
+        //     System.out.println(optional.get());
+        // }
+       String name=optional.orElse("Null value found");
+       System.out.println(name);
     }
 }
