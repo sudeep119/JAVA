@@ -40,12 +40,14 @@ public class StreamApi {
 
         list.stream().map(x->x*x).distinct().reduce(0,Integer::sum);
 
-        Optional<String>optional=Optional.ofNullable(null);
+        Optional<String>optional=Optional.ofNullable("Sudeep");
 
         // if(optional.isPresent()){
         //     System.out.println(optional.get());
         // }
        String name=optional.orElse("Null value found");
        System.out.println(name);
+
+
     }
 }
