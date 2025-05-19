@@ -25,6 +25,6 @@ public class Mthread {
         }catch(Exception e){
             throw new ClassCastException();
         }
-
+        System.out.println(tc1);
     }
 }

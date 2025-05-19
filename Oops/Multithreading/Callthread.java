@@ -8,4 +8,9 @@ public class Callthread implements Callable<String>{
     public String call(){
         return "Hey im callable";
     }
+
+    @Override
+    public String toString(){
+        return "This is to string method";
+    }
 }
