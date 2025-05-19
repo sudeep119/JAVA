@@ -26,6 +26,6 @@ public class RaceCondition extends Thread{
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        System.out.println(count);
+        System.out.println("Count is "+ count);
     }
 }
