@@ -1,6 +1,6 @@
 package Oops.Multithreading;
 
-public class RaceCondition extends Thread{
+public class Locks extends Thread{
     
     static int count=0;
     static Object obj=new Object();
@@ -17,8 +17,8 @@ public class RaceCondition extends Thread{
     }
     public static void main(String[] args) {
         
-        RaceCondition t1=new RaceCondition();
-        RaceCondition t2=new RaceCondition();
+        Locks t1=new Locks();
+        Locks t2=new Locks();
         t1.start();
         t2.start();
         try{
