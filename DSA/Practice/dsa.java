@@ -3,8 +3,9 @@ package DSA.Practice;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
-class dsa {
+public class dsa {
     public static void main(String[] args) {
         
         int arr[][]={
@@ -77,7 +78,8 @@ class dsa {
                     neighbour+=1;
                 }
             }
-
+            Scanner sc=new Scanner(System.in);
+            sc.nextInt();
             return neighbour;
         }
 
