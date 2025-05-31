@@ -10,18 +10,36 @@ public class Nqueens {
 
     public static void Solve(int row,int col,int n,boolean matrix[][]){
         
-            if(n==0)
-
-        for(int i=0;i<matrix.length;i++){
-            if(validPos(row,col,matrix)){
-                Solve(row,col+1,n-1, matrix);
+            if(n==0){
+                for(boolean r[]:matrix){
+                        for(boolean num:r){
+                            if(num)
+                            System.out.print('N'+" ");
+                            else
+                            System.out.print("X"+" ");
+                        }
+                    System.out.println();
+                }
+                return;
             }
-        }
+            if(col>=matrix[0].length){
+                Solve(row+1, 0, n, matrix);
+            }
+            if(row>=matrix.length){
+                return;
+            }
+
+            if(validPos(row,col,matrix)){
+                matrix[row][col]=true;
+                Solve(row+1,col,n-1, matrix);
+                matrix[row][col]=false;
+            }
+            Solve(row , col+1, n - 1, matrix);
     }
 
     public static boolean validPos(int row,int col,boolean matrix[][]){
 
-        if(isHor(row,col,matrix)&&isVer(row,col,matrix)){
+        if(isHor(row,col,matrix)&&isVer(row,col,matrix)&&isDia(row, col, matrix)){
             return true;
         }else{
             return false;
@@ -29,7 +47,7 @@ public class Nqueens {
     }
 
     public static boolean isHor(int row,int col,boolean matrix[][]){
-         for(int i=col+1;i<matrix.length;i++){
+         for(int i=0;i<matrix.length;i++){
             if(matrix[row][i]){
                 return false;
             }
@@ -38,7 +56,7 @@ public class Nqueens {
     }
 
     public static boolean isVer(int row,int col,boolean matrix[][]){
-        for(int i=0;i<matrix[i].length;i++){
+        for(int i=0;i<matrix.length;i++){
             if(i==row)continue;
             if(matrix[i][col]){
                 return false;
@@ -47,7 +65,20 @@ public class Nqueens {
          return true;
     }
 
-    // public void isDia(int row,int col,boolean matrix[][]){
-    //     for(int =)
-    // }
+    public static boolean isDia(int row,int col,boolean matrix[][]){
+        for(int i=row-1,j=col-1;i>=0&&j>=0;i--,j--){
+            if(matrix[i][j])return false;
+        }
+        for(int i=row-1,j=col+1;i>=0&&j<matrix.length;i--,j++){
+            if(matrix[i][j])return false;
+        }
+        for(int i=row+1,j=col-1;i < matrix.length&&j>=0;i++,j--){
+            if(matrix[i][j])return false;
+        }
+        for(int i=row+1,j=col+1;i<matrix.length&&j<matrix.length;i++,j++){
+            if(matrix[i][j])return false;
+        }
+
+        return true;
+    }
 }
