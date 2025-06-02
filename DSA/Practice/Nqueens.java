@@ -12,18 +12,22 @@ public class Nqueens {
         
             if(n==0){
                 for(boolean r[]:matrix){
+                    String ans="";
                         for(boolean num:r){
                             if(num)
-                            System.out.print('N'+" ");
+                            ans=ans+'N';
                             else
-                            System.out.print("X"+" ");
+                            ans=ans+'X';
                         }
+                    System.out.print(ans);
+                    System.out.print(',');
                     System.out.println();
                 }
                 return;
             }
             if(col>=matrix[0].length){
                 Solve(row+1, 0, n, matrix);
+                return;
             }
             if(row>=matrix.length){
                 return;
@@ -31,10 +35,10 @@ public class Nqueens {
 
             if(validPos(row,col,matrix)){
                 matrix[row][col]=true;
-                Solve(row+1,col,n-1, matrix);
+                Solve(row+1,0,n-1, matrix);
                 matrix[row][col]=false;
             }
-            Solve(row , col+1, n - 1, matrix);
+            Solve(row , col+1, n, matrix);
     }
 
     public static boolean validPos(int row,int col,boolean matrix[][]){
@@ -78,7 +82,8 @@ public class Nqueens {
         for(int i=row+1,j=col+1;i<matrix.length&&j<matrix.length;i++,j++){
             if(matrix[i][j])return false;
         }
-
+        Nqueens obj=new Nqueens();
         return true;
     }
+    
 }
