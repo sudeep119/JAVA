@@ -87,3 +87,8 @@ public class Nqueens {
     }
     
 }
+
+class Quen extends Nqueens{
+    Nqueens obj=new Quen();
+    Quen q=(Quen)obj;
+}
